@@ -40,7 +40,7 @@ def construct_http_request(args: dict) -> bytes:
                     args['url'] + ' HTTP/1.1\r\n'
 
     header_lines =  'Host: ' + args['host_server'] + '\r\n' + \
-                    'User-Agent: ' + USER_AGENTS[args['user_a']] + '\r\n' + \
+                    'User-Agent: ' + USER_AGENTS[args['user_a'] - 1] + '\r\n' + \
                     'Accept: text/html, application/xhtml+xml,' + \
                     'application/xml;q=0.9, */*;q=0.8\r\n' + \
                     'Accept-Charset: utf-8\r\n' + \
