@@ -74,7 +74,7 @@ def tcp_connection(host_server: str, http_request: bytes) -> None:
         print(f"Error: {e}")
         print('Connection failed.')
 
-    print('Connection to the server finished.')
+    print('Connection to the server finished.\n')
 
 
 if __name__ == "__main__":
