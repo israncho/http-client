@@ -46,7 +46,7 @@ def construct_http_request(args: dict) -> str:
                     'Accept-Charset: utf-8\r\n' + \
                     'Connection: ' + args['connection'] + '\r\n' + \
                     'Accept-Encoding: ' + args['encoding'] + '\r\n' + \
-                    'Accept-Languaje: en-US\r\n'
+                    'Accept-Language: en-US\r\n'
 
     return request_line + header_lines + '\r\n'
 
