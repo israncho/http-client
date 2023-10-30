@@ -19,7 +19,7 @@ def process_args() -> dict:
 
     user_a = int(argv[4])
     assert 1 <= user_a and user_a <= 3, 'Wrong user agent'
-    arguments['user_agent'] = user_a
+    arguments['user_a'] = user_a
 
     assert argv[5] in ENCODING, 'unavailable encoding, try:' + str(ENCODING)
     arguments['encoding'] = argv[5]
@@ -35,5 +35,21 @@ USER_AGENTS = ['Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101
                'MyFakeBrowser/1.0 (FakeOS; Simulator 3.0)']
 
 
+def construct_http_request(args: dict) -> str:
+    request_line =  args['http_method'] + ' ' + \
+                    args['url'] + ' HTTP/1.1\r\n'
+
+    header_lines =  'Host: ' + args['host_server'] + '\r\n' + \
+                    'User-Agent: ' + USER_AGENTS[args['user_a']] + '\r\n' + \
+                    'Accept: text/html, application/xhtml+xml,' + \
+                    'application/xml;q=0.9, */*;q=0.8\r\n' + \
+                    'Accept-Charset: utf-8\r\n' + \
+                    'Connection: ' + args['connection'] + '\r\n' + \
+                    'Accept-Encoding: ' + args['encoding'] + '\r\n' + \
+                    'Accept-Languaje: en-US\r\n'
+
+    return request_line + header_lines + '\r\n'
+
+
 if __name__ == "__main__":
-    print(process_args())
+    print(construct_http_request(process_args()).encode())
