@@ -72,12 +72,47 @@ Ahora, una vez dentro del contenedor ejecuta:
 
 ## Evaluacion
 
+Referencias consultadas:
+
+- [https://en.wikipedia.org/wiki/HTTP#Request_methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) y 
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
 ### ¿Cuál es la función de los métodos de HTTP HEAD, GET, POST, PUT y DELETE?
 
+- **HEAD:** Este metodo hace lo mismo que el **GET** pero sin recuperar
+    el cuerpo de la respuesta. Principalmente para recuperar metadatos,
+    nos puede apoyar para verificar si un servicion esta disponible.
+
+- **GET:** Es el metodo para solicitar un recurso especificado del servidor.
+    Este metodo solo se debe usar para obtener datos.
+
+- **POST:** Envia a un servidor datos, para interactuar con este y muy
+    posiblemente cambiar el estado del mismo.
+
+- **PUT:** Se utiliza para crear o actualiza recursos en un servidor.
+
+- **DELETE:** Se utiliza para solicitar que un recurso en un servidor sea
+    borrado. El uso de este debe ser con precaucion pues muchas veces
+    no se quiere que un usuario tenga la capacidad de realizar esto.
 
 ### ¿Investigue y enliste junto con su significado las categorías de códigos de estado que usa HTTP?
 
+- **100-199:** Respuestas informativas
+
+- **200-299:** Respuestas de exito.
+
+- **300-399:** Respuestas de redireccion.
+
+- **400-499:** Errores por parte del cliente.
+
+- **500-599:** Errores por parte del servidor.
+
 ### ¿Para qué se usan los campos encoding y connection?
+
+
 
 ### Complicaciones
 
