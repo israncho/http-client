@@ -72,24 +72,16 @@ Ahora, una vez dentro del contenedor ejecuta:
 
 ## Evaluacion
 
-Referencias consultadas:
-
-- [https://en.wikipedia.org/wiki/HTTP#Request_methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) y 
-
-- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
-
-- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-
 ### ¿Cuál es la función de los métodos de HTTP HEAD, GET, POST, PUT y DELETE?
 
-- **HEAD:** Este metodo hace lo mismo que el **GET** pero sin recuperar
+- **HEAD:** Este metodo hace lo mismo que **GET** pero sin recuperar
     el cuerpo de la respuesta. Principalmente para recuperar metadatos,
     nos puede apoyar para verificar si un servicion esta disponible.
 
 - **GET:** Es el metodo para solicitar un recurso especificado del servidor.
     Este metodo solo se debe usar para obtener datos.
 
-- **POST:** Envia a un servidor datos, para interactuar con este y muy
+- **POST:** Envia a un servidor datos para interactuar con este y muy
     posiblemente cambiar el estado del mismo.
 
 - **PUT:** Se utiliza para crear o actualiza recursos en un servidor.
@@ -100,7 +92,7 @@ Referencias consultadas:
 
 ### ¿Investigue y enliste junto con su significado las categorías de códigos de estado que usa HTTP?
 
-- **100-199:** Respuestas informativas
+- **100-199:** Respuestas informativas.
 
 - **200-299:** Respuestas de exito.
 
@@ -112,6 +104,25 @@ Referencias consultadas:
 
 ### ¿Para qué se usan los campos encoding y connection?
 
+- **enconding:** Este campo se utiliza para especificar los tipos
+    de codificacion que entiende el cliente, posteriormente el servidor
+    elige uno de estos tipos para codificar las respuestas.
+
+- **connection:** Este campo es para especificar como se va a manejar la
+    conexion entre el cliente y el servidor despues de que la transaccion
+    se complete.
+
+#### Referencias consultadas:
+
+- [https://en.wikipedia.org/wiki/HTTP#Request_methods](https://en.wikipedia.org/wiki/HTTP#Request_methods)
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection)
 
 
 ### Complicaciones
