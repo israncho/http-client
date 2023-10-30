@@ -1,5 +1,6 @@
 # http-client
-Implementacion de un cliente HTTP con python.
+Implementacion de un pequeño cliente HTTP con python para la practica 4
+de la materia de redes de computadoras 2024-1.
 
 ## Requerimientos
 
