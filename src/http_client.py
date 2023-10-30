@@ -35,7 +35,7 @@ USER_AGENTS = ['Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101
                'MyFakeBrowser/1.0 (FakeOS; Simulator 3.0)']
 
 
-def construct_http_request(args: dict) -> str:
+def construct_http_request(args: dict) -> bytes:
     request_line =  args['http_method'] + ' ' + \
                     args['url'] + ' HTTP/1.1\r\n'
 
@@ -48,8 +48,36 @@ def construct_http_request(args: dict) -> str:
                     'Accept-Encoding: ' + args['encoding'] + '\r\n' + \
                     'Accept-Language: en-US\r\n'
 
-    return request_line + header_lines + '\r\n'
+    http_request = request_line + header_lines + '\r\n'
+    return http_request.encode('utf-8')
+
+
+def tcp_connection(host_server: str, http_request: bytes) -> None:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    try:
+        print('Starting connection.')
+        s.connect((host_server, 80))
+        s.send(http_request)
+        response = b''
+
+        while True:
+            data = s.recv(1024)
+            if not data: break
+            response += data
+
+        print('Server response:\n------------------------------')
+        print(response.decode('utf-8'))
+        print('------------------------------')
+
+    except Exception as e:
+        print(f"Error: {e}")
+        print('Connection failed.')
+
+    print('Connection to the server finished.')
 
 
 if __name__ == "__main__":
-    print(construct_http_request(process_args()).encode())
+    arguments = process_args()
+    http_request = construct_http_request(arguments)
+    tcp_connection(arguments['host_server'], http_request)
