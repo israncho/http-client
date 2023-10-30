@@ -66,9 +66,9 @@ def tcp_connection(host_server: str, http_request: bytes) -> None:
             if not data: break
             response += data
 
-        print('Server response:\n------------------------------')
+        print('Server response:\n----------------------------------------')
         print(response.decode('utf-8'))
-        print('------------------------------')
+        print('----------------------------------------')
 
     except Exception as e:
         print(f"Error: {e}")
@@ -79,5 +79,9 @@ def tcp_connection(host_server: str, http_request: bytes) -> None:
 
 if __name__ == "__main__":
     arguments = process_args()
+    print('python3', end=' ')
+    for e in argv:
+        print(e, end=' ')
+    print()
     http_request = construct_http_request(arguments)
     tcp_connection(arguments['host_server'], http_request)
