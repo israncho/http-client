@@ -12,23 +12,27 @@ def process_args() -> dict:
     arguments = dict()
     arguments['host_server'] = argv[1]
 
-    assert argv[2] in HTTP_M, 'unavailable HTTP method, try: ' + str(HTTP_M)
+    assert argv[2] in HTTP_M, error_msg(argv[2], HTTP_M)
     arguments['http_method'] = argv[2]
 
     arguments['url'] = argv[3]
 
     user_a = int(argv[4])
-    assert 1 <= user_a and user_a <= 3, 'Wrong user agent'
+    assert 1 <= user_a and user_a <= 3, error_msg(argv[4], [1, 2, 3])
     arguments['user_a'] = user_a
 
-    assert argv[5] in ENCODING, 'unavailable encoding, try:' + str(ENCODING)
+    assert argv[5] in ENCODING, error_msg(argv[5], ENCODING)
     arguments['encoding'] = argv[5]
 
-    assert argv[6] in CONNECT, 'unavailable connection arg, try:' + str(CONNECT)
+    assert argv[6] in CONNECT, error_msg(argv[6], CONNECT)
     arguments['connection'] = argv[6]
 
     return arguments
 
+
+def error_msg(usr_input: str, options: list) -> str:
+    return '\'' + usr_input + '\' invalid or unavailable argument option,' \
+        + ' try with one of the following options: ' + str(options)
 
 USER_AGENTS = ['Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
                'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
