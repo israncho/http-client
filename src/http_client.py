@@ -78,7 +78,13 @@ def tcp_connection(host_server: str, http_request: bytes) -> None:
 
 
 if __name__ == "__main__":
-    arguments = process_args()
+    arguments = None
+    try:
+        arguments = process_args()
+    except Exception as e:
+        print(e)
+        exit()
+
     print('python3', end=' ')
     for e in argv:
         print(e, end=' ')
