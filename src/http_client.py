@@ -73,12 +73,12 @@ def tcp_connection(host_server: str, http_request: bytes) -> None:
         print('Server response:\n----------------------------------------')
         print(response.decode('utf-8'))
         print('----------------------------------------')
+        print('Connection to the server finished.\n')
 
     except Exception as e:
         print(f"Error: {e}")
         print('Connection failed.')
 
-    print('Connection to the server finished.\n')
 
 
 if __name__ == "__main__":
